@@ -7,7 +7,6 @@ O **Authentic** é uma plataforma moderna voltada para a verificação de autent
 ## ✨ Funcionalidades
 
 * 🔍 **Detecção de Imagem:** Identifica artefatos digitais em mídias sintéticas usando modelos de visão computacional.
-* ✍️ **Análise de Texto:** Verifica padrões linguísticos típicos de LLMs (Large Language Models).
 * 📊 **Score de Probabilidade:** Retorna uma porcentagem em tempo real sobre a chance do conteúdo ser artificial.
 * 🎨 **Interface Premium:** Design moderno com Dark Mode, Glassmorphism e alta responsividade.
 
