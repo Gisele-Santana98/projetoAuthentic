@@ -1,6 +1,6 @@
-# 🛡️ Authentic AI - Detector de Conteúdo Fake
+# 🛡️ Authentic - Detector de Conteúdo Fake
 
-O **Authentic AI** é uma plataforma moderna voltada para a verificação de autenticidade digital. Utilizando técnicas avançadas de análise forense via API, o sistema identifica se textos ou imagens foram gerados por inteligência artificial (como DALL-E, Midjourney ou ChatGPT) com alta precisão.
+O **Authentic** é uma plataforma moderna voltada para a verificação de autenticidade digital. Utilizando técnicas avançadas de análise forense via API, o sistema identifica se textos ou imagens foram gerados por inteligência artificial (como DALL-E, Midjourney ou ChatGPT) com alta precisão.
 
 ---
 
