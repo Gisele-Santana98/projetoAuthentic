@@ -14,17 +14,16 @@ export default function Layout({ children }) {
       <body 
         className={`${geistSans.variable} antialiased bg-[#070507] text-white min-h-screen flex flex-col`}
       >
-        {/* ESTE É O PONTO CHAVE: 
-            O wrapper abaixo garante que o conteúdo ocupe a largura total,
-            mas mantenha tudo o que estiver dentro dele centralizado no eixo X.
+        {/* REMOVIDO: items-center e flex-col que esmagavam o conteúdo.
+          Agora o main apenas ocupa o espaço disponível.
         */}
-        <div className="flex-1 w-full flex flex-col items-center justify-start">
+        <main className="flex-1 w-full">
           {children}
-        </div>
+        </main>
 
-        {/* FOOTER RESPONSIVO */}
+        {/* FOOTER RESPONSIVO - Mantido com mx-auto para não quebrar o layout interno */}
         <footer id="contato" className="w-full border-t-2 border-[#DF6E94]/30 bg-[#070507] px-6 py-12 mt-auto">
-          <div className="max-w-[1200px] mx-auto w-full">
+          <div className="max-w-[1200px] mx-auto">
             
             <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-10 text-center sm:text-left">
               
@@ -53,7 +52,7 @@ export default function Layout({ children }) {
                   Suporte
                 </div>
                 
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 text-center sm:text-right">
                   <p className="text-white/90 text-sm font-medium m-0">
                     contato@authentic.com
                   </p>
@@ -66,7 +65,7 @@ export default function Layout({ children }) {
 
             {/* RODAPÉ FINAL */}
             <div className="flex flex-col items-center mt-16 gap-5">
-              <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">
+              <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium text-center">
                 © 2026 Authentic • TODOS OS DIREITOS RESERVADOS
               </p>
               <div className="w-16 h-[3px] bg-[#DF6E94] shadow-[0_0_15px_#DF6E94] rounded-full"></div>
