@@ -7,20 +7,40 @@
   --foreground: #ffffff;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
-/* Garante que o fundo escuro seja aplicado mesmo se o Tailwind falhar */
-html {
-  background-color: #070507 !important;
-  scroll-behavior: smooth;
+html, body {
+  background-color: var(--background) !important;
+  color: var(--foreground);
+  font-family: sans-serif;
+  
+  /* Garante que o corpo ocupe a tela toda sem transbordar */
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  
+  /* Remove o flex direto do body para não bugar o Next.js */
+  display: block; 
+}
+
+/* O Next.js envolve tudo em uma div interna. Precisamos centralizar nela. */
+body > div:first-child {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Compensação para o menu não cobrir o título ao rolar */
-#sobre {
+#sobre, #tecnologia, #contato {
   scroll-margin-top: 100px; 
+}
+
+/* Suaviza a rolagem */
+html {
+  scroll-behavior: smooth;
 }
