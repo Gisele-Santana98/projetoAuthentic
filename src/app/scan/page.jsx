@@ -219,4 +219,4 @@ export default function Page() {
       </footer>
     </div>
   );
-} Agora esse, ve oq precisa para deixar responsivo para mobile
+} 
