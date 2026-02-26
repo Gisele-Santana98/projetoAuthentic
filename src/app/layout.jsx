@@ -11,19 +11,16 @@ const geistSans = Geist({
 export default function Layout({ children }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body 
-        className={`${geistSans.variable} antialiased bg-[#070507] text-white min-h-screen flex flex-col`}
-      >
-        {/* REMOVIDO: items-center e flex-col que esmagavam o conteúdo.
-          Agora o main apenas ocupa o espaço disponível.
-        */}
+      <body className={`${geistSans.variable} antialiased bg-[#070507] text-white min-h-screen flex flex-col`}>
+        
+        {/* CONTEÚDO PRINCIPAL: Sem o flex-col items-center que quebrava o grid */}
         <main className="flex-1 w-full">
           {children}
         </main>
 
-        {/* FOOTER RESPONSIVO - Mantido com mx-auto para não quebrar o layout interno */}
-        <footer id="contato" className="w-full border-t-2 border-[#DF6E94]/30 bg-[#070507] px-6 py-12 mt-auto">
-          <div className="max-w-[1200px] mx-auto">
+        {/* FOOTER RESPONSIVO: Restaurado para a estrutura original */}
+        <footer id="contato" className="w-full border-t-2 border-[#DF6E94]/30 bg-[#070507] px-6 py-12">
+          <div className="max-w-[1200px] mx-auto w-full">
             
             <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-10 text-center sm:text-left">
               
@@ -65,7 +62,7 @@ export default function Layout({ children }) {
 
             {/* RODAPÉ FINAL */}
             <div className="flex flex-col items-center mt-16 gap-5">
-              <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium text-center">
+              <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">
                 © 2026 Authentic • TODOS OS DIREITOS RESERVADOS
               </p>
               <div className="w-16 h-[3px] bg-[#DF6E94] shadow-[0_0_15px_#DF6E94] rounded-full"></div>
