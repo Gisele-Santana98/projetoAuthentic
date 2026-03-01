@@ -1,4 +1,3 @@
-
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { ShieldCheck } from 'lucide-react';
@@ -12,26 +11,27 @@ const geistSans = Geist({
 export default function Layout({ children }) {
   return (
     <html lang="pt-BR">
-      {/* CORREÇÃO: Voltamos para o fundo preto absoluto (#070507) e flexbox para o footer colar embaixo */}
-     <body 
-  className={`${geistSans.variable} antialiased`} 
-  style={{ 
-    margin: 0, 
-    backgroundColor: '#070507', // Mantém o fundo preto enquanto o CSS carrega
-    color: 'white',
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-    fontFamily: 'var(--font-geist-sans), sans-serif', // Força a fonte Geist
-  }}
->
-        
-        <div style={{ flex: 1 }}>
+      <body 
+        className={`${geistSans.variable} antialiased`} 
+        style={{ 
+          margin: 0, 
+          backgroundColor: '#070507', 
+          color: 'white',
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+          fontFamily: 'var(--font-geist-sans), sans-serif',
+          // AJUSTE 1: Bloqueia a rolagem lateral no nível do body
+          width: '100%',
+          overflowX: 'hidden',
+        }}
+      >
+        <div style={{ flex: 1, width: '100%' }}>
           {children}
         </div>
 
-        {/* FOOTER  */}
-       <footer id="contato" style={{
+        {/* FOOTER TOTALMENTE CORRIGIDO */}
+    <footer id="contato" style={{
   width: '100%', 
   borderTop: '2px solid rgba(223, 110, 148, 0.3)', 
   backgroundColor: '#070507', 
