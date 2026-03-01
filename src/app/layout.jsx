@@ -84,7 +84,7 @@ export default function Layout({ children }) {
             contato@authentic.com
           </p>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', margin: 0 }}>
-            +55 (11) 99999-9999
+            +55 (71) 98657-4980
           </p>
         </div>
       </div>
