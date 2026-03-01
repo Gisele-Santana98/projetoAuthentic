@@ -7,20 +7,20 @@
   --foreground: #ffffff;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  background-color: #070507;
-  color: white;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: sans-serif;
   margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* Evita a barra de rolagem lateral */
 }
 
-/* Garante que as âncoras não fiquem escondidas sob o menu fixo */
-#sobre, #tecnologia {
-  scroll-margin-top: 100px;
+/* Garante que o fundo escuro seja aplicado mesmo se o Tailwind falhar */
+html {
+  background-color: #070507 !important;
+  scroll-behavior: smooth;
+}
+
+/* Compensação para o menu não cobrir o título ao rolar */
+#sobre {
+  scroll-margin-top: 100px; 
 }
