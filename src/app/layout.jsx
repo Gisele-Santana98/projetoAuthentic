@@ -1,3 +1,4 @@
+
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { ShieldCheck } from 'lucide-react';
@@ -10,66 +11,101 @@ const geistSans = Geist({
 
 export default function Layout({ children }) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
-      <body className={`${geistSans.variable} antialiased bg-[#070507] text-white min-h-screen flex flex-col`}>
+    <html lang="pt-BR">
+      {/* CORREÇÃO: Voltamos para o fundo preto absoluto (#070507) e flexbox para o footer colar embaixo */}
+     <body 
+  className={`${geistSans.variable} antialiased`} 
+  style={{ 
+    margin: 0, 
+    backgroundColor: '#070507', // Mantém o fundo preto enquanto o CSS carrega
+    color: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+    fontFamily: 'var(--font-geist-sans), sans-serif', // Força a fonte Geist
+  }}
+>
         
-        {/* CONTEÚDO DAS PÁGINAS */}
-        {/* Removi o wrapper flex-col items-center que causava o erro de empilhamento */}
-        <main className="flex-1 w-full">
+        <div style={{ flex: 1 }}>
           {children}
-        </main>
+        </div>
 
-        {/* FOOTER RESPONSIVO */}
-        <footer id="contato" className="w-full border-t-2 border-[#DF6E94]/30 bg-[#070507] px-6 py-12 mt-auto">
-          <div className="max-w-[1200px] mx-auto w-full">
-            
-            <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-10 text-center sm:text-left">
-              
-              {/* LADO ESQUERDO: LOGO E LINKS */}
-              <div className="flex flex-col gap-8 items-center sm:items-start">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="text-[#DF6E94] drop-shadow-[0_0_10px_rgba(223,110,148,0.5)]" size={28} />
-                  <span className="text-xl font-black uppercase tracking-[0.2em] text-white">
-                    Authen<span className="text-[#DF6E94]">tic</span>
-                  </span>
-                </div>
-                
-                <nav className="flex gap-8">
-                  <Link href="/#sobre" className="text-white no-underline text-[13px] font-black uppercase tracking-[0.15em] hover:text-[#DF6E94] transition-colors">
-                    Sobre
-                  </Link>
-                  <Link href="/scan" className="text-white no-underline text-[13px] font-black uppercase tracking-[0.15em] hover:text-[#DF6E94] transition-colors">
-                    Scanner
-                  </Link>
-                </nav>
-              </div>
+        {/* FOOTER  */}
+       <footer id="contato" style={{
+  width: '100%', 
+  borderTop: '2px solid rgba(223, 110, 148, 0.3)', 
+  backgroundColor: '#070507', 
+  padding: '60px 40px', 
+  marginTop: 'auto' 
+}}>
+  <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    
+    <div style={{ 
+      display: 'flex', 
+      justifyContent: 'space-between', 
+      alignItems: 'flex-start', 
+      flexWrap: 'wrap',
+      gap: '40px' 
+    }}>
+      
+      {/* LADO ESQUERDO: LOGO E LINKS */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <ShieldCheck style={{ color: '#DF6E94', filter: 'drop-shadow(0 0 10px #DF6E94)' }} size={28} />
+          <span style={{ fontSize: '20px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#FFFFFF' }}>
+            Authen<span style={{ color: '#DF6E94' }}>tic</span>
+          </span>
+        </div>
+        
+        <nav style={{ display: 'flex', gap: '30px' }}>
+          <Link href="/#sobre" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Sobre</Link>
+          <Link href="/scan" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Scanner</Link>
+        </nav>
+      </div>
 
-              {/* LADO DIREITO: SUPORTE */}
-              <div className="flex flex-col gap-4 items-center sm:items-end">
-                <div className="text-[#DF6E94] text-sm font-black uppercase tracking-widest border border-[#DF6E94] px-6 py-2 rounded shadow-[inset_0_0_5px_rgba(223,110,148,0.2)]">
-                  Suporte
-                </div>
-                
-                <div className="text-center sm:text-right">
-                  <p className="text-white/90 text-sm font-medium m-0 mb-1">
-                    contato@authentic.com
-                  </p>
-                  <p className="text-white/60 text-sm m-0">
-                    +55 (11) 99999-9999
-                  </p>
-                </div>
-              </div>
-            </div>
+      {/* LADO DIREITO: SUPORTE (SEM LINK NO BOTÃO) */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '15px' }}>
+        <div style={{ 
+          color: '#DF6E94', 
+          fontSize: '14px', 
+          fontWeight: '900', 
+          textTransform: 'uppercase', 
+          letterSpacing: '0.15em', 
+          border: '1px solid #DF6E94', 
+          padding: '10px 25px', 
+          borderRadius: '4px',
+          boxShadow: 'inset 0 0 5px rgba(223, 110, 148, 0.2)'
+        }}>
+          Suporte
+        </div>
+        
+        <div style={{ textAlign: 'right' }}>
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '14px', margin: '0 0 5px 0', fontWeight: '500' }}>
+            contato@authentic.com
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', margin: 0 }}>
+            +55 (11) 99999-9999
+          </p>
+        </div>
+      </div>
+    </div>
 
-            {/* RODAPÉ FINAL */}
-            <div className="flex flex-col items-center mt-16 gap-5">
-              <p className="text-white/40 text-[11px] uppercase tracking-[0.3em] font-medium text-center">
-                © 2026 Authentic • TODOS OS DIREITOS RESERVADOS
-              </p>
-              <div className="w-20 h-[3px] bg-[#DF6E94] shadow-[0_0_20px_#DF6E94] rounded-full"></div>
-            </div>
-          </div>
-        </footer>
+    {/* RODAPÉ FINAL: COPYRIGHT E LINHA NEON */}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '60px', gap: '20px' }}>
+      <p style={{ color: 'rgba(255, 255, 255, 0.41)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.3em', marginBottom: '20px' }}>
+        © 2026 Authentic • TODOS OS DIREITOS RESERVADOS
+      </p>
+      <div style={{ 
+        width: '80px', 
+        height: '3px', 
+        backgroundColor: '#DF6E94', 
+        boxShadow: '0 0 20px #DF6E94',
+        borderRadius: '10px',
+        margin: '0 auto'
+      }}></div>
+    </div>
+  </div>
+</footer>
       </body>
     </html>
   );
